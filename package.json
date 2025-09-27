@@ -1,0 +1,41 @@
+{
+  "name": "expo-migrator",
+  "version": "1.0.0",
+  "description": "Smoothly migrate your Expo app to any version without breaking dependencies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SonetAD/expo-migrator.git"
+  },
+  "keywords": [
+    "expo",
+    "expo-cli",
+    "react-native",
+    "expo-migrate",
+    "expo-upgrade",
+    "expo-downgrade",
+    "expo-version",
+    "migration-tool",
+    "upgrade-tool",
+    "version-migrate",
+    "smooth-migration",
+    "package-updater",
+    "cli-tool",
+    "expo-helper",
+    "project-migration",
+    "easy-upgrade",
+    "dependency-upgrade",
+    "safe-upgrade",
+    "expo-project",
+    "expo-assistant"
+  ],
+  "author": "Sonet Adhikary",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SonetAD/expo-migrator/issues"
+  },
+  "homepage": "https://github.com/SonetAD/expo-migrator#readme"
+}

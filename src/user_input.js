@@ -21,6 +21,30 @@ async function collectUserInput() {
       },
     ]);
 
+    // If user selected custom version, ask for custom input
+    let finalVersion = version;
+    if (version === 'custom') {
+      const { customVersion } = await inquirer.prompt([
+        {
+          type: 'input',
+          name: 'customVersion',
+          message: 'Enter custom Expo SDK version:',
+          validate: (input) => {
+            if (!input || input.trim() === '') {
+              return 'Please enter a valid Expo SDK version';
+            }
+            // Basic version format validation (supports formats like "51", "51.0.0", "51.0.0-beta.1")
+            const versionRegex = /^\d+(\.\d+)?(\.\d+)?(-\w+(\.\d+)?)?$/;
+            if (!versionRegex.test(input.trim())) {
+              return 'Please enter a valid version format (e.g., "51", "51.0.0", "51.0.0-beta.1")';
+            }
+            return true;
+          },
+        },
+      ]);
+      finalVersion = customVersion.trim();
+    }
+
     const { projectPath } = await inquirer.prompt([
       {
         type: 'input',
@@ -49,7 +73,7 @@ async function collectUserInput() {
     }
 
     return {
-      expoVersion: version,
+      expoVersion: finalVersion,
       projectPath: path.resolve(projectPath),
     };
   } catch (error) {

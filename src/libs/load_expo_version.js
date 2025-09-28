@@ -6,8 +6,6 @@ import chalk from 'chalk';
  */
 export async function fetchLatestExpoVersions() {
   try {
-    console.log(chalk.gray('🔍 Fetching latest Expo versions...'));
-
     // Fetch all versions from npm registry
     const res = await fetch('https://registry.npmjs.org/expo');
     const data = await res.json();
@@ -75,8 +73,6 @@ export async function getExpoVersions() {
   const versionData = await fetchLatestExpoVersions();
 
   if (versionData && versionData.latest) {
-    console.log(chalk.green('✅ Successfully fetched latest Expo versions\n'));
-
     // Return only latest stable and custom version options
     return [
       {
@@ -84,7 +80,7 @@ export async function getExpoVersions() {
         value: versionData.latest,
       },
       { name: chalk.gray('─'.repeat(40)), disabled: true },
-      { name: '🔧 Custom Version', value: 'custom' }
+      { name: '🔧 Custom Version', value: 'custom' },
     ];
   }
 
